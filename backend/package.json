@@ -1,6 +1,5 @@
 {
   "name": "breakfast-backend",
-  "type": "module",
   "scripts": {
     "dev": "netlify dev",
     "build": "echo 'No build needed'"
