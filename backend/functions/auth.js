@@ -1,4 +1,4 @@
-
+const { json } = require('@netlify/functions');
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { pool } from './utils/database.js';

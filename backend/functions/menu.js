@@ -1,4 +1,4 @@
-
+const { json } = require('@netlify/functions');
 import { pool } from './utils/database.js';
 import jwt from 'jsonwebtoken';
 
