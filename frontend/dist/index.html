@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic American Breakfast | Online Ordering System</title>
+    <meta name="description" content="Order delicious classic American breakfast dishes delivered to your doorstep in Metro Manila. Freshly prepared pancakes, bacon, eggs, and more!">
+    
+    <!-- Styles -->
+    
+    
+    
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#FF6B35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Classic American Breakfast">
+    <meta property="og:description" content="Order delicious American breakfast classics delivered fresh to your door">
+    <meta property="og:type" content="website">
+    
+    <style>
+        /* Loading screen styles */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF6B35, #FFB347);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        /* Hide loading screen when app loads */
+        .loaded #loading-screen {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/main-c4bb1733.js"></script>
+  <link rel="stylesheet" href="/assets/index-2c408e4c.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Preparing your breakfast experience...</div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app">
+        <!-- App will be rendered here by JavaScript -->
+        <div style="text-align: center; padding: 100px 20px; font-family: 'Inter', sans-serif;">
+            <div style="font-size: 4rem; margin-bottom: 20px;">🍳</div>
+            <h1 style="color: #FF6B35; margin-bottom: 10px;">Classic American Breakfast</h1>
+            <p style="color: #666; font-size: 1.1rem; margin-bottom: 30px;">
+                Loading your breakfast ordering experience...
+            </p>
+            <div style="color: #888; font-size: 0.9rem;">
+                If this takes too long, please check your internet connection.
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Modules -->
+    
+    
+    <script>
+        // Enhanced error handling
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+            const app = document.getElementById('app');
+            if (app) {
+                app.innerHTML = `
+                    <div style="text-align: center; padding: 50px 20px; font-family: Arial, sans-serif;">
+                        <h1 style="color: #e74c3c;">⚠️ Something went wrong</h1>
+                        <p>Please refresh the page or check your console for errors.</p>
+                        <button onclick="window.location.reload()" 
+                                style="padding: 10px 20px; background: #FF6B35; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">
+                            Refresh Page
+                        </button>
+                    </div>
+                `;
+            }
+        });
+
+        // Hide loading screen when app starts
+        window.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 1000);
+        });
+
+        // Service Worker registration (for future PWA)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
+    
+    <!-- Analytics placeholder (for future use) -->
+    <script>
+        // Google Analytics or other analytics can be added here later
+        // console.log('Analytics ready for integration');
+    </script>
+</body>
+</html>
