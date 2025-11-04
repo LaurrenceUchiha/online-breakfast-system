@@ -7,14 +7,13 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: './index.html'
-      }
+      input: './index.html'
     }
   },
   server: {
     port: 5173,
-    host: true, // Allow external access
-    open: true  // Auto-open browser
-  }
+    host: true
+  },
+  // Important for SPA routing
+  base: './',
 });
